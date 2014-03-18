@@ -6,7 +6,7 @@
 .EXAMPLE
    New-F5.Pool -PoolName Pool_www_80 -MemberList ('1.2.3.4','1.2.3.5') -MemberPort 80
 #>
-function New-F5.Pool
+function New-F5.LTMPool
 {
     #todo: allow method to be set rather than assuming RR
     
@@ -45,7 +45,7 @@ function New-F5.Pool
    Test-F5.Pool -PoolName "Pool_www_80"
 
 #>
-function Test-F5.Pool
+function Test-F5.LTMPool
 {
   #todo: have it check for short names (assume /Common/)
   param([string]$PoolName);
@@ -72,7 +72,7 @@ function Test-F5.Pool
 .EXAMPLE
    Remove-F5.Pool -PoolName Pool_www_80
 #>
-function Remove-F5.Pool
+function Remove-F5.LTMPool
 {
     [cmdletbinding()]
     #Tod: could use a -whatif and -force
@@ -96,7 +96,7 @@ function Remove-F5.Pool
 .EXAMPLE
    Add-F5.PoolMonitor -PoolName Pool_www_80 -MonitorName http-test
 #>
-function Add-F5.PoolMonitor()
+function Add-F5.LTMPoolMonitor()
 {
   param(
     # The Pool name to target.
@@ -116,3 +116,4 @@ function Add-F5.PoolMonitor()
   
   Write-Verbose "Monitor '$MonitorName' Is Associated With Pool '$PoolName'"
 }
+

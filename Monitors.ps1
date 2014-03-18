@@ -7,7 +7,7 @@
 .EXAMPLE
    Test-F5.MonitorTemplate -MonitorName http
 #>
-function Test-F5.MonitorTemplate
+function Test-F5.LTMMonitorTemplate
 {
     param(
         # Monitor name to check for
@@ -36,7 +36,7 @@ function Test-F5.MonitorTemplate
 .EXAMPLE
    
 #>
-function New-F5.MonitorTemplate
+function New-F5.LTMMonitorTemplate
 {
     param(
         # The Name of the monitor template you wish to create.
@@ -103,7 +103,7 @@ function New-F5.MonitorTemplate
 .EXAMPLE
    Remove-F5.MonitorTemplate http-test
 #>
-function Remove-F5.MonitorTemplate
+function Remove-F5.LTMMonitorTemplate
 {
     #todo: support whatif/force
     param( 
