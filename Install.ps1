@@ -24,9 +24,12 @@ if (!(Test-Path $InstallDirectory))
 }
 
 $wc = New-Object System.Net.WebClient
-$wc.DownloadFile("https://raw.github.com/$userid/$repo/master/$modname.psd1","$installDirectory\$ModName.psd1")
-(Import-LocalizedData -FileName "$InstallDirectory\$ModName.psd1").filelist | %{$wc.DownloadFile("https://raw.github.com/$userid/$repo/master/$_","$installDirectory\$_")}
-gci $InstallDirectory | Unblock-File
+$wc.DownloadFile("https://raw.github.com/$userid/$repo/master/$modname.psd1","$installDirectory\$modname.psd1")
+Push-Location
+cd $InstallDirectory
+(Import-LocalizedData -FileName "$ModName.psd1").filelist | %{$wc.DownloadFile("https://raw.github.com/$userid/$repo/master/$_","$installDirectory\$_")}
+gci | Unblock-File
+Pop-Location
 
 
 #iex (new-object System.Net.WebClient).DownloadString('https://raw.github.com/jrich523/PowerShell-Session-Manager/master/Install.ps1')
