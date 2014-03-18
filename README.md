@@ -13,7 +13,7 @@ A module the extend the functionality of the icontrol snappin which can be downl
 
 ## Details ##
 
-Functions are in the same form for Verb-F5.LTM<function>
+Functions are in the same form for *Verb*-F5.LTM*function*
 functions can be listed by running
 
 	gcm -module f5.extension
